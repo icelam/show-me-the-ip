@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="Voe-Tx-rLC" id="GzC-gU-4Uq"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Show_me_the_IP" customModuleProvider="target"/>
+        <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <customObject id="9Od-vb-uz1" customClass="statusMenuController" customModule="Show_me_the_IP" customModuleProvider="target">
+            <connections>
+                <outlet property="appInfoMenuItem" destination="2N7-Qr-hy5" id="ZVc-7q-cZh"/>
+                <outlet property="displaySettingMenu" destination="GA0-3v-0Od" id="Y4q-Jh-u9b"/>
+                <outlet property="statusMenu" destination="8Pf-5J-HP2" id="boI-6W-xOI"/>
+            </connections>
+        </customObject>
+        <menu id="8Pf-5J-HP2">
+            <items>
+                <menuItem title="Show me the IP" id="2N7-Qr-hy5">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Author: Pinky Lam" id="8UB-QR-wdL">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="uPU-0N-ErK"/>
+                <menuItem title="Copy IP Address" id="P7L-Ch-7pW">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="copyIPAddress:" target="9Od-vb-uz1" id="GrQ-Qy-D59"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="fd7-gn-AEr"/>
+                <menuItem title="Display Format" id="Bwy-FZ-KMl">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Display Format" identifier="displayFormat" id="GA0-3v-0Od">
+                        <items>
+                            <menuItem title="aaa.bbb.ccc.ddd" id="ixW-Vt-MzI">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="displayFullIP:" target="9Od-vb-uz1" id="H0I-0s-K6i"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="bbb.ccc.ddd" id="Ejq-1w-OE3">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="displayIPWithoutNetworkPrefix:" target="9Od-vb-uz1" id="UtB-hp-yGB"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="ccc.ddd" id="lL7-1A-pSe">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="displayHalfIP:" target="9Od-vb-uz1" id="tst-QG-jbq"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="ddd" id="Ymt-y1-HwB">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="displayHostSuffixOfIP:" target="9Od-vb-uz1" id="uWX-OD-9bI"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Debug Application" id="M0m-E9-Ndy">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Debug Application" id="f5d-Sf-f3z">
+                        <items>
+                            <menuItem title="Refresh" id="29g-Tp-Ivz">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="refreshIP:" target="9Od-vb-uz1" id="eXh-Qm-VSL"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Clear Preferences" id="kfL-EO-rgF">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="clearUserDefaults:" target="9Od-vb-uz1" id="iSI-Tk-VyB"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="About" id="WG2-0w-4aX">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showAboutMessage:" target="9Od-vb-uz1" id="i45-D4-eA6"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Quit" id="uqJ-G9-Q5b">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="quitApp:" target="9Od-vb-uz1" id="S1q-x6-0zh"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="87.5" y="165.5"/>
+        </menu>
+    </objects>
+</document>
