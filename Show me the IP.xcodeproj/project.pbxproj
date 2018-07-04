@@ -1,0 +1,346 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C80348CF20A158C0006A687C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80348CE20A158C0006A687C /* AppDelegate.swift */; };
+		C80348D420A158C0006A687C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C80348D220A158C0006A687C /* MainMenu.xib */; };
+		C87B78E820A1ABCF00EB0C9D /* getIpAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87B78E720A1ABCF00EB0C9D /* getIpAddress.swift */; };
+		C87B78EA20A1AF0100EB0C9D /* statusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87B78E920A1AF0100EB0C9D /* statusMenuController.swift */; };
+		C87B78EC20A217DF00EB0C9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C80348D020A158C0006A687C /* Assets.xcassets */; };
+		C8ADE4BE20A2984500AE15B0 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8ADE4BD20A2984500AE15B0 /* Reachability.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C894668620BC60D300418EE6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C80348CB20A158C0006A687C /* Show me the IP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Show me the IP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C80348CE20A158C0006A687C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C80348D020A158C0006A687C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C80348D320A158C0006A687C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		C80348D520A158C0006A687C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C80348D620A158C0006A687C /* Show_me_the_IP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Show_me_the_IP.entitlements; sourceTree = "<group>"; };
+		C87B78E420A1A53500EB0C9D /* Show me the IP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Show me the IP-Bridging-Header.h"; sourceTree = "<group>"; };
+		C87B78E720A1ABCF00EB0C9D /* getIpAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getIpAddress.swift; sourceTree = "<group>"; };
+		C87B78E920A1AF0100EB0C9D /* statusMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = statusMenuController.swift; sourceTree = "<group>"; };
+		C8ADE4BD20A2984500AE15B0 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C80348C820A158C0006A687C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C80348C220A158C0006A687C = {
+			isa = PBXGroup;
+			children = (
+				C80348CD20A158C0006A687C /* Show me the IP */,
+				C80348CC20A158C0006A687C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C80348CC20A158C0006A687C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C80348CB20A158C0006A687C /* Show me the IP.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C80348CD20A158C0006A687C /* Show me the IP */ = {
+			isa = PBXGroup;
+			children = (
+				C80348CE20A158C0006A687C /* AppDelegate.swift */,
+				C87B78E720A1ABCF00EB0C9D /* getIpAddress.swift */,
+				C87B78E920A1AF0100EB0C9D /* statusMenuController.swift */,
+				C80348D020A158C0006A687C /* Assets.xcassets */,
+				C80348D220A158C0006A687C /* MainMenu.xib */,
+				C80348D520A158C0006A687C /* Info.plist */,
+				C80348D620A158C0006A687C /* Show_me_the_IP.entitlements */,
+				C87B78E420A1A53500EB0C9D /* Show me the IP-Bridging-Header.h */,
+				C8ADE4BD20A2984500AE15B0 /* Reachability.swift */,
+			);
+			path = "Show me the IP";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C80348CA20A158C0006A687C /* Show me the IP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C80348D920A158C0006A687C /* Build configuration list for PBXNativeTarget "Show me the IP" */;
+			buildPhases = (
+				C80348C720A158C0006A687C /* Sources */,
+				C80348C820A158C0006A687C /* Frameworks */,
+				C80348C920A158C0006A687C /* Resources */,
+				C894668620BC60D300418EE6 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Show me the IP";
+			productName = "Show me the IP";
+			productReference = C80348CB20A158C0006A687C /* Show me the IP.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C80348C320A158C0006A687C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Pinky Lam";
+				TargetAttributes = {
+					C80348CA20A158C0006A687C = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = C80348C620A158C0006A687C /* Build configuration list for PBXProject "Show me the IP" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C80348C220A158C0006A687C;
+			productRefGroup = C80348CC20A158C0006A687C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C80348CA20A158C0006A687C /* Show me the IP */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C80348C920A158C0006A687C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C87B78EC20A217DF00EB0C9D /* Assets.xcassets in Resources */,
+				C80348D420A158C0006A687C /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C80348C720A158C0006A687C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C87B78E820A1ABCF00EB0C9D /* getIpAddress.swift in Sources */,
+				C87B78EA20A1AF0100EB0C9D /* statusMenuController.swift in Sources */,
+				C8ADE4BE20A2984500AE15B0 /* Reachability.swift in Sources */,
+				C80348CF20A158C0006A687C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C80348D220A158C0006A687C /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C80348D320A158C0006A687C /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C80348D720A158C0006A687C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C80348D820A158C0006A687C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		C80348DA20A158C0006A687C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Show me the IP/Show_me_the_IP.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Show me the IP/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "hk.com.ifwd.dcm.Show-me-the-IP";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Show me the IP/Show me the IP-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		C80348DB20A158C0006A687C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Show me the IP/Show_me_the_IP.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Show me the IP/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "hk.com.ifwd.dcm.Show-me-the-IP";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Show me the IP/Show me the IP-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C80348C620A158C0006A687C /* Build configuration list for PBXProject "Show me the IP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C80348D720A158C0006A687C /* Debug */,
+				C80348D820A158C0006A687C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C80348D920A158C0006A687C /* Build configuration list for PBXNativeTarget "Show me the IP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C80348DA20A158C0006A687C /* Debug */,
+				C80348DB20A158C0006A687C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C80348C320A158C0006A687C /* Project object */;
+}
