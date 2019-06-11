@@ -28,8 +28,7 @@ class getIpAddress: NSObject {
                 
                 // Check interface name:
                 let name = String(cString: interface.ifa_name)
-                if  name == "en0" {
-                    
+                if  name == "en0" || name == "en1" {
                     // Convert interface address to a human readable string:
                     var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
                     getnameinfo(interface.ifa_addr, socklen_t(interface.ifa_addr.pointee.sa_len),
