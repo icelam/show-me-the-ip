@@ -11,7 +11,7 @@ import Cocoa
 class getIpAddress: NSObject {
     // Return IP address of WiFi interface (en0) as a String, or `nil`
     func getWiFiAddress() -> String? {
-        var address : String?
+        var addresses : [String : String?] = ["v4": nil, "v6": nil]
         
         // Get list of all interfaces on the local machine:
         var ifaddr : UnsafeMutablePointer<ifaddrs>?
@@ -22,10 +22,10 @@ class getIpAddress: NSObject {
         for ifptr in sequence(first: firstAddr, next: { $0.pointee.ifa_next }) {
             let interface = ifptr.pointee
             
-            // Check for IPv4 or IPv6 interface:
+            // Check for IPv4 and IPv6 interface:
             let addrFamily = interface.ifa_addr.pointee.sa_family
             if addrFamily == UInt8(AF_INET) || addrFamily == UInt8(AF_INET6) {
-                
+                let addressMode =  addrFamily == UInt8(AF_INET) ? "v4" : "v6"
                 // Check interface name:
                 let name = String(cString: interface.ifa_name)
                 if  name == "en0" || name == "en1" {
@@ -34,20 +34,20 @@ class getIpAddress: NSObject {
                     getnameinfo(interface.ifa_addr, socklen_t(interface.ifa_addr.pointee.sa_len),
                                 &hostname, socklen_t(hostname.count),
                                 nil, socklen_t(0), NI_NUMERICHOST)
-                    address = String(cString: hostname)
+                    addresses[addressMode] = String(cString: hostname)
                 }
             }
         }
         freeifaddrs(ifaddr)
         
-        return address
+        return addresses["v4"] ?? addresses["v6"] ?? ""
     }
     
     func getFormattedIP(n: Int?) -> String? {
         if let ipAddr = getWiFiAddress() {
-            if (n ?? 0 > 0) {
-                //Study how to use swift substring and rewrite this function!!!
-                let addrArr = ipAddr.components(separatedBy: ".")
+            let addrArr = ipAddr.components(separatedBy: ".")
+            if (n ?? 0 > 0 && addrArr.count == 4) {
+                // FIXME: Convert this if else block to substring or regex
                 var formattedAddr = "";
                 if(n! < 1) {
                     formattedAddr += addrArr[0] + "."
