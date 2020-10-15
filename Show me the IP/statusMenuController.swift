@@ -19,7 +19,7 @@ class statusMenuController: NSObject {
     
     let bundleShortVersionString = Bundle.main.infoDictionary?["CFBundleShortVersionString"]  as? String
     
-    let reachability = Reachability()!
+    let reachability = try! Reachability()
     
     override func awakeFromNib() {
         print("awakeFromNib")

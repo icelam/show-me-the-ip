@@ -35,7 +35,6 @@
 		C80348D320A158C0006A687C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		C80348D520A158C0006A687C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C80348D620A158C0006A687C /* Show_me_the_IP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Show_me_the_IP.entitlements; sourceTree = "<group>"; };
-		C87B78E420A1A53500EB0C9D /* Show me the IP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Show me the IP-Bridging-Header.h"; sourceTree = "<group>"; };
 		C87B78E720A1ABCF00EB0C9D /* getIpAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getIpAddress.swift; sourceTree = "<group>"; };
 		C87B78E920A1AF0100EB0C9D /* statusMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = statusMenuController.swift; sourceTree = "<group>"; };
 		C8ADE4BD20A2984500AE15B0 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -78,7 +77,6 @@
 				C80348D220A158C0006A687C /* MainMenu.xib */,
 				C80348D520A158C0006A687C /* Info.plist */,
 				C80348D620A158C0006A687C /* Show_me_the_IP.entitlements */,
-				C87B78E420A1A53500EB0C9D /* Show me the IP-Bridging-Header.h */,
 				C8ADE4BD20A2984500AE15B0 /* Reachability.swift */,
 			);
 			path = "Show me the IP";
@@ -296,7 +294,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hk.com.ifwd.dcm.Show-me-the-IP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Show me the IP/Show me the IP-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
@@ -314,7 +313,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hk.com.ifwd.dcm.Show-me-the-IP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Show me the IP/Show me the IP-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

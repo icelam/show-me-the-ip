@@ -34,3 +34,6 @@ The steps for packaging a release includes:
 1. Bumping the "Bundle versions string, short" and "Bundle version" in `Show me the IP/Info.plist`
 2. Choose `Project > Archive` in the Xcode application menu
 3. Choose `Distribute App` in the popup window, select `Copy App` option
+
+### Dependencies
+* To detech the network change, [Reachability.swift](https://github.com/ashleymills/Reachability.swift) is used
