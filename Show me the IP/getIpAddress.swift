@@ -39,8 +39,7 @@ class getIpAddress: NSObject {
             }
         }
         freeifaddrs(ifaddr)
-        
-        return addresses["v4"] ?? addresses["v6"] ?? ""
+        return addresses["v4"] as? String ?? addresses["v6"] as? String ?? ""
     }
     
     func getFormattedIP(n: Int?) -> String? {
