@@ -39,7 +39,7 @@ class IpAddress: NSObject {
             }
         }
         freeifaddrs(ifaddr)
-        return addresses["v4"] as? String ?? addresses["v6"] as? String ?? ""
+        return addresses["v4"] as? String ?? addresses["v6"] as? String ?? nil
     }
     
     func isIPv4(ipAddr: String) -> Bool {
@@ -47,7 +47,7 @@ class IpAddress: NSObject {
         return addrArr.count == 4
     }
     
-    func getFormattedIP(n: Int?) -> String {
+    func getFormattedIP(n: Int?) -> String? {
         if let ipAddr = getWiFiAddress() {
             let addrArr = ipAddr.components(separatedBy: ".")
             if (n ?? 0 > 0 && addrArr.count == 4) {
@@ -69,7 +69,7 @@ class IpAddress: NSObject {
                 return ipAddr
             }
         } else {
-            return "Not Connected"
+            return nil
         }
     }
 }

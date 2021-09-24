@@ -77,9 +77,13 @@ class statusMenuController: NSObject {
     
     @IBAction func copyIPAddress(_ sender: NSMenuItem) {
         os_log("Copying IP Address", log: .default, type: .default)
-        let pasteboard = NSPasteboard.general
-        pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
-        pasteboard.setString(IpAddr.getFormattedIP(n: 0), forType: NSPasteboard.PasteboardType.string)    }
+        let currentIpAddr = IpAddr.getFormattedIP(n: 0);
+        if(currentIpAddr != nil) {
+            let pasteboard = NSPasteboard.general
+            pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
+            pasteboard.setString(currentIpAddr ?? "", forType: NSPasteboard.PasteboardType.string)
+        }
+    }
     
     // Display Formats
     func displaySet(dPref: Int, current: NSMenuItem) {
@@ -103,9 +107,9 @@ class statusMenuController: NSObject {
     
     func setMenuTitle() {
         let addrPref = UserDefaults.standard.object(forKey: displayPreference);
-        let ipString = IpAddr.getFormattedIP(n: addrPref as? Int);
+        let ipString = IpAddr.getFormattedIP(n: addrPref as? Int) ?? "Not Connected";
         statusItem.title = ipString
-        os_log("Set menu title: %{public}s", log: .default, type: .default, IpAddr.getFormattedIP(n: addrPref as? Int))
+        os_log("Set menu title: %{public}s", log: .default, type: .default, ipString)
         
         if (!IpAddr.isIPv4(ipAddr: ipString)) {
             if(setMenuTitleRetryCount < maxSetMenuTitleRetry) {
