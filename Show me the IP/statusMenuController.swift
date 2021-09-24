@@ -7,9 +7,10 @@
 //
 
 import Cocoa
+import os
 
 class statusMenuController: NSObject {
-    @IBOutlet weak var statusMenu: NSMenu! //Main Menu
+    @IBOutlet weak var statusMenu: NSMenu! // Main Menu
     @IBOutlet weak var displaySettingMenu: NSMenu! // Display Format
     @IBOutlet weak var appInfoMenuItem: NSMenuItem!
     
@@ -21,18 +22,23 @@ class statusMenuController: NSObject {
     
     let reachability = try! Reachability()
     
+    let IpAddr = IpAddress();
+    
+    let maxSetMenuTitleRetry = 3;
+    var setMenuTitleRetryCount = 0;
+    
     override func awakeFromNib() {
-        print("awakeFromNib")
+        os_log("awakeFromNib", log: .default, type: .default)
         
-        //Listen to network change
+        // Listen to network change
         NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
-        do{
+        do {
             try reachability.startNotifier()
-        }catch{
-            print("Could not start reachability notifier")
+        } catch {
+            os_log("Could not start reachability notifier", log: .default, type: .error)
         }
         
-        //set active submenu item
+        // Set active submenu item
         let addrPref = UserDefaults.standard.object(forKey: displayPreference);
         
         if (addrPref != nil) {
@@ -42,27 +48,25 @@ class statusMenuController: NSObject {
             displaySettingMenu.items[0].state = NSControl.StateValue.on
         }
         
-        //statusItem.title = getIpAddress().getFormattedIP(n: addrPref as? Int)
-        
         appInfoMenuItem.title = "Show me the IP (v" + bundleShortVersionString! + ")"
         
         statusItem.menu = statusMenu
     }
     
     @objc func reachabilityChanged(note: Notification) {
-        print("Reachability changed")
+        os_log("Detected change in reachability", log: .default, type: .default)
         
-        /*let networkConnection = note.object as! Reachability
+        /* let networkConnection = note.object as! Reachability
         switch networkConnection.connection {
             case .wifi:
-                print("Reachable via WiFi")
+                os_log("Reachable via WiFi", log: .default, type: .default)
             case .cellular:
-                print("Reachable via Cellular")
+                os_log("Reachable via Cellular", log: .default, type: .default)
             case .none:
-                print("Network not reachable")
-        }*/
+                os_log("Network not reachable", log: .default, type: .default)
+        } */
         
-        setMenuTitle()
+        setMenuTitle();
     }
     
     @IBAction func quitApp(_ sender: NSMenuItem) {
@@ -72,19 +76,19 @@ class statusMenuController: NSObject {
     }
     
     @IBAction func copyIPAddress(_ sender: NSMenuItem) {
-        print("Copy IP Address")
+        os_log("Copying IP Address", log: .default, type: .default)
         let pasteboard = NSPasteboard.general
         pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
-        pasteboard.setString(getIpAddress().getFormattedIP(n: 0)!, forType: NSPasteboard.PasteboardType.string)    }
+        pasteboard.setString(IpAddr.getFormattedIP(n: 0), forType: NSPasteboard.PasteboardType.string)    }
     
-    //Display Formats
+    // Display Formats
     func displaySet(dPref: Int, current: NSMenuItem) {
-        print("Change display preference")
-        statusItem.title = getIpAddress().getFormattedIP(n:dPref)
+        os_log("Changing display preference: %{public}s", log: .default, type: .default, String(dPref))
+        statusItem.title = IpAddr.getFormattedIP(n:dPref)
         
         let addrPref = UserDefaults.standard.object(forKey: displayPreference);
         
-        //unset active submenu item
+        // Unset active submenu item
         if (addrPref != nil) {
             let itemIndex = addrPref as? Int;
             displaySettingMenu.items[itemIndex!].state = NSControl.StateValue.off
@@ -99,8 +103,28 @@ class statusMenuController: NSObject {
     
     func setMenuTitle() {
         let addrPref = UserDefaults.standard.object(forKey: displayPreference);
-        statusItem.title = getIpAddress().getFormattedIP(n: addrPref as? Int)
-        print("Set menu title: " + getIpAddress().getFormattedIP(n: addrPref as? Int)!)
+        let ipString = IpAddr.getFormattedIP(n: addrPref as? Int);
+        statusItem.title = ipString
+        os_log("Set menu title: %{public}s", log: .default, type: .default, IpAddr.getFormattedIP(n: addrPref as? Int))
+        
+        if (!IpAddr.isIPv4(ipAddr: ipString)) {
+            if(setMenuTitleRetryCount < maxSetMenuTitleRetry) {
+                // Delay set menu title to wait for a IPv4 IP for N seconds
+                // Since in some scenario
+                setMenuTitleRetryCount += 1
+                
+                os_log("The current IP is not IPv4 format, retry after 3 seconds.", log: .default, type: .error)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                    print("Retrying...")
+                    self.setMenuTitle()
+                }
+            } else {
+                os_log("Failed to get IP in IPv4 format. Maximum retry hitted, resetting counter.", log: .default, type: .error)
+                
+                setMenuTitleRetryCount = 0;
+            }
+        }
     }
     
     @IBAction func displayFullIP(_ sender: NSMenuItem) {
@@ -119,16 +143,16 @@ class statusMenuController: NSObject {
         displaySet(dPref: 3, current: sender)
     }
     
-    //Debug
+    // For debug use
     @IBAction func refreshIP(_ sender: NSMenuItem) {
-        print("Refresh IP")
-        setMenuTitle();
+        os_log("Manual trigger of refresh IP.", log: .default, type: .default)
+        setMenuTitle()
     }
     
     @IBAction func clearUserDefaults(_ sender: NSMenuItem) {
-        print("Delete saved preferences")
+        os_log("Deleting saved preferences.", log: .default, type: .default)
         let addrPref = UserDefaults.standard.object(forKey: displayPreference);
-        //unset active submenu item
+        // Unset active submenu item
         if (addrPref != nil) {
             let itemIndex = addrPref as? Int;
             displaySettingMenu.items[itemIndex!].state = NSControl.StateValue.off
@@ -138,9 +162,9 @@ class statusMenuController: NSObject {
         
         displaySettingMenu.items[0].state = NSControl.StateValue.on
         
-        statusItem.title = getIpAddress().getFormattedIP(n: 0)
+        statusItem.title = IpAddr.getFormattedIP(n: 0)
         
-        //delete user pref
+        // Delete user pref
         let dictionary = defaults.dictionaryRepresentation()
         dictionary.keys.forEach { key in
             defaults.removeObject(forKey: key)
@@ -148,7 +172,7 @@ class statusMenuController: NSObject {
     }
     
     @IBAction func showAboutMessage(_ sender: NSMenuItem) {
-        print("Show About Message")
+        os_log("Showing About Message.", log: .default, type: .default)
         let alert = NSAlert()
         alert.messageText = "Show me the IP (v" + bundleShortVersionString! + ")"
         alert.informativeText = "Author: Pinky Lam\nDeveloped on 8 May, 2018\n\nThis application is develop to show the current IP address. For internal use only. \n\nKnown issue: \nIP displayed will not refresh sometimes when SSID changes without disconnecting or turning off Wi-Fi."

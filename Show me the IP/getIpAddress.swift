@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class getIpAddress: NSObject {
+class IpAddress: NSObject {
     // Return IP address of WiFi interface (en0) as a String, or `nil`
     func getWiFiAddress() -> String? {
         var addresses : [String : String?] = ["v4": nil, "v6": nil]
@@ -42,7 +42,12 @@ class getIpAddress: NSObject {
         return addresses["v4"] as? String ?? addresses["v6"] as? String ?? ""
     }
     
-    func getFormattedIP(n: Int?) -> String? {
+    func isIPv4(ipAddr: String) -> Bool {
+        let addrArr = ipAddr.components(separatedBy: ".")
+        return addrArr.count == 4
+    }
+    
+    func getFormattedIP(n: Int?) -> String {
         if let ipAddr = getWiFiAddress() {
             let addrArr = ipAddr.components(separatedBy: ".")
             if (n ?? 0 > 0 && addrArr.count == 4) {
