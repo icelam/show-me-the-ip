@@ -24,3 +24,13 @@ jobs:
           release_name: ${{ github.ref }}
           draft: false
           prerelease: false
+      - name: Upload Application.zip as release asset
+        id: upload-release-asset-manifest
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: ./Application.zip
+          asset_name: Application.zip
+          asset_content_type: application/zip
